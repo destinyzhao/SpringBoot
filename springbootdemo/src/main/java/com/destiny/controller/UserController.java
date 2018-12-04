@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/user",produces = "application/json")
+@RequestMapping(value = "/user", produces = "application/json")
 
 
 public class UserController {
@@ -20,7 +20,7 @@ public class UserController {
     // 改成GET方式方便测试
 
     // http://localhost:8080/user/getUsers
-    @RequestMapping(value = "/getUsers",method = RequestMethod.GET)
+    @RequestMapping(value = "/getUsers", method = RequestMethod.GET)
     /**
      * 获取所有用户
      * @author Destiny
@@ -33,8 +33,8 @@ public class UserController {
     }
 
 
-   // http://localhost:8080/user/getUser/?userId=1
-    @RequestMapping(value = "/getUser",method = RequestMethod.GET)
+    // http://localhost:8080/user/getUser/?userId=1
+    @RequestMapping(value = "/getUser", method = RequestMethod.GET)
     /**
      * 根据用户Id获取用户
      * @author Destiny
@@ -42,13 +42,13 @@ public class UserController {
      * @param [id]
      * @return com.destiny.bean.User
      */
-    public User getUser( @RequestParam(value = "userId" )int userId){
+    public User getUser(@RequestParam(value = "userId") int userId) {
 
         return userService.findUserById(userId);
     }
 
     // http://localhost:8080/user/updateUser/?userId=1&userName=刘牧师&userAge=50
-    @RequestMapping(value = "/updateUser",method = RequestMethod.GET)
+    @RequestMapping(value = "/updateUser", method = RequestMethod.GET)
     /**
      * 更新用户
      * @author Destiny
@@ -56,24 +56,24 @@ public class UserController {
      * @param [userId, userName, userAge]
      * @return java.lang.String
      */
-    public String updateUser(@RequestParam(value = "userId" )int userId ,
-                             @RequestParam(value = "userName")String userName,
-                             @RequestParam(value = "userAge" )int userAge){
-        User user=new User();
+    public String updateUser(@RequestParam(value = "userId") int userId,
+                             @RequestParam(value = "userName") String userName,
+                             @RequestParam(value = "userAge") int userAge) {
+        User user = new User();
         user.setUserId(userId);
         user.setUserName(userName);
         user.setUserAge(userAge);
 
-        int t=userService.updateUser(user);
-        if(t==1){
+        int t = userService.updateUser(user);
+        if (t == 1) {
             return "更新成功";
-        }else {
+        } else {
             return "更新失败";
         }
     }
 
     // http://localhost:8080/user/addUser/?userName=Alex&userAge=20
-    @RequestMapping(value = "/addUser",method = RequestMethod.GET)
+    @RequestMapping(value = "/addUser", method = RequestMethod.GET)
     /**
      * 新增用户
      * @author Destiny
@@ -81,35 +81,35 @@ public class UserController {
      * @param [userName, userAge]
      * @return java.lang.String
      */
-    public String addUser(@RequestParam(value = "userName")String userName,
-                          @RequestParam(value = "userAge" )int userAge){
-        User user=new User();
+    public String addUser(@RequestParam(value = "userName") String userName,
+                          @RequestParam(value = "userAge") int userAge) {
+        User user = new User();
         user.setUserName(userName);
         user.setUserAge(userAge);
-        int t= userService.addUser(user);
-        if(t==1){
+        int t = userService.addUser(user);
+        if (t == 1) {
             return "增加失败";
-        }else {
+        } else {
             return "增加成功";
         }
 
     }
 
     // http://localhost:8080/user/deleteUser/?userId=1
-    @RequestMapping(value = "/deleteUser",method = RequestMethod.GET)
-   /**
-    * 根据用户Id删除用户
-    * @author Destiny
-    * @date 2018/7/15
-    * @param [userId]
-    * @return java.lang.String
-    */
-    public String deleteUser(@RequestParam(value = "userId" )int userId){
+    @RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+    /**
+     * 根据用户Id删除用户
+     * @author Destiny
+     * @date 2018/7/15
+     * @param [userId]
+     * @return java.lang.String
+     */
+    public String deleteUser(@RequestParam(value = "userId") int userId) {
 
-        int t= userService.deleteUser(userId);
-        if(t==1){
+        int t = userService.deleteUser(userId);
+        if (t == 1) {
             return "删除成功！";
-        }else {
+        } else {
             return "用户不存在";
         }
     }

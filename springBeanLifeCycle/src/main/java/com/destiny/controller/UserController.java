@@ -15,7 +15,7 @@ public class UserController {
     // http://localhost:8080/user/beans
     @GetMapping("/user/beans")
     @ResponseBody
-    public String beans() throws Exception{
+    public String beans() throws Exception {
         //spring 工厂
         String xmlPath = "classpath:beans.xml";
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);

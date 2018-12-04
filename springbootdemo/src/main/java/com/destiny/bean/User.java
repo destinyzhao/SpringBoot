@@ -4,7 +4,7 @@ public class User {
 
     private int userId;
     private String userName;
-    private  int userAge;
+    private int userAge;
 
     public int getUserId() {
         return userId;

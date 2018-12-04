@@ -8,17 +8,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements  UserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDAO;
 
     /**
      * 增加用户
-     * @author Destiny
-     * @date 2018/7/15
+     *
      * @param
      * @return
+     * @author Destiny
+     * @date 2018/7/15
      */
     @Override
     public int addUser(User user) {
@@ -27,10 +28,11 @@ public class UserServiceImpl implements  UserService {
 
     /**
      * 更新用户
-     * @author Destiny
-     * @date 2018/7/15
+     *
      * @param
      * @return
+     * @author Destiny
+     * @date 2018/7/15
      */
     @Override
     public int updateUser(User user) {
@@ -39,10 +41,11 @@ public class UserServiceImpl implements  UserService {
 
     /**
      * 删除用户
-     * @author Destiny
-     * @date 2018/7/15
+     *
      * @param
      * @return
+     * @author Destiny
+     * @date 2018/7/15
      */
     @Override
     public int deleteUser(int id) {
@@ -51,10 +54,11 @@ public class UserServiceImpl implements  UserService {
 
     /**
      * 根据用户Id查询用户
-     * @author Destiny
-     * @date 2018/7/15
+     *
      * @param
      * @return
+     * @author Destiny
+     * @date 2018/7/15
      */
     @Override
     public User findUserById(int id) {
@@ -63,13 +67,14 @@ public class UserServiceImpl implements  UserService {
 
     /**
      * 查询所有用户
-     * @author Destiny
-     * @date 2018/7/15
+     *
      * @param
      * @return
+     * @author Destiny
+     * @date 2018/7/15
      */
     @Override
-    public List<User>findUserList() {
+    public List<User> findUserList() {
         return userDAO.findUserList();
     }
 }
